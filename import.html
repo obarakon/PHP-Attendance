@@ -3,19 +3,43 @@
 
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <title>New Class</title>
+    <title>Import Students</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 
 <body>
-    <div class="container">
-       <h1>Add New Class</h1>
-        <form action="import.php" method="post" enctype="multipart/form-data" role="form">
-            <div class="form-group">
-                <label for="className">Class Name:</label>
-                <input type="text" name="className" id="className" class="form-control" required>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                </button>
+                <a class="navbar-brand" href="menu.html">PHP-Attendance</a>
             </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="menu.html">Main Menu</a>
+                    </li>
+                    <li class="active"><a href="import.html">Import Students</a>
+                    </li>
+                    <li><a href="createclass.php">Create Class</a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                    </li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>Import Students</h1>
+        <form action="import.php" method="post" enctype="multipart/form-data" role="form">
             <div class="form-group">
                 <label for="importCSV">Browse Your Computer For .csv</label>
                 <input type="file" name="importCSV" id="importCSV" class="" required>
