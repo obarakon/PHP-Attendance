@@ -49,7 +49,7 @@
                     $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
                     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $stmt = <<<EOT
-                    SELECT student_id FROM students
+                    SELECT student_id FROM students ORDER BY students . student_id ASC
 EOT;
                     $results = $pdo->query($stmt, PDO::FETCH_NUM);
                     while($row = $results->fetch()){
