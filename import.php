@@ -21,20 +21,19 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["importCSV"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["importCSV"]["name"]). " has been uploaded.";
+        $row = 1;
+        if (($handle = fopen($target_file, "r")) !== FALSE) {
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $num = count($data);
+                echo "<p>$num fields in line $row: <br /></p>\n";
+                $row++;
+                for ($c=0; $c< $num; $c++) {
+                    echo $data[$c] . "<br />\n";
+                }
+            }
+            fclose($handle);
+        } 
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
-
-$row = 1;
-if (($handle = fopen($target_file, "r")) !== FALSE) {
-    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-        $num = count($data);
-        echo "<p>$num fields in line $row: <br /></p>\n";
-        $row++;
-        for ($c=0; $c< $num; $c++) {
-            echo $data[$c] . "<br />\n";
-        }
-    }
-    fclose($handle);
-} 
